@@ -4,7 +4,6 @@
  * To make it visible, set visible: true for the 'Code' entry in src/data/navigation.ts
  * once pyanalogs is publicly released.
  *
- * TODO (logo): place the pyanalogs logo at /public/assets/logos/pyanalogs_logo.png
  * TODO (links): replace placeholder hrefs below with real documentation URLs once the
  *   package is released.
  * TODO (package): the package source will be available locally at ../analogs_package/pyanalogs/
@@ -21,11 +20,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     analog-based methods in geoscience and dynamical systems.
   </p>
 
-  {/* TODO: replace with <img src="/assets/logos/pyanalogs_logo.png" ... /> once available */}
   <div style="text-align:center; margin:1.5rem 0;">
-    <div style="display:inline-block; border:1px dashed #bbb; padding:1rem 2rem; color:#aaa; font-family:sans-serif; font-size:0.85rem; border-radius:3px;">
-      [pyanalogs logo placeholder]
-    </div>
+    <img
+      src="/assets/logos/pyanalogs_logo.svg"
+      alt="pyanalogs logo"
+      style="display:inline-block; width:100%; max-width:300px; height:auto;"
+    />
   </div>
 
   <h2>The package</h2>

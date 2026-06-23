@@ -96,8 +96,18 @@ if (existsSync(logosDir)) {
   console.warn('  WARNING: content/dynadist-na/logos/ not found — skipping');
 }
 
+// ── pyanalogs logo ──────────────────────────────────────────────────────────
+console.log('\n[5] pyanalogs logo (content/logo_pyanalogs/)');
+const pyanalogsLogoSrc = join(ROOT, 'content/logo_pyanalogs/logo.svg');
+if (existsSync(pyanalogsLogoSrc)) {
+  copyFile(pyanalogsLogoSrc, join(destLogos, 'pyanalogs_logo.svg'),
+    'logo.svg → public/assets/logos/pyanalogs_logo.svg');
+} else {
+  console.warn('  WARNING: content/logo_pyanalogs/logo.svg not found — skipping');
+}
+
 // ── CV PDF ───────────────────────────────────────────────────────────────────
-console.log('\n[5] CV PDF (content/CV/)');
+console.log('\n[6] CV PDF (content/CV/)');
 const cvDir = join(ROOT, 'content/CV');
 if (existsSync(cvDir)) {
   const pdfs = readdirSync(cvDir)
@@ -120,7 +130,7 @@ if (existsSync(cvDir)) {
 }
 
 // ── Talk slide PDFs ─────────────────────────────────────────────────────────
-console.log('\n[6] Talk slide PDFs (content/talks_slides/)');
+console.log('\n[7] Talk slide PDFs (content/talks_slides/)');
 const talksSlidesDir = join(ROOT, 'content/talks_slides');
 if (existsSync(talksSlidesDir)) {
   const files = readdirSync(talksSlidesDir);
