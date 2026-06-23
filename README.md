@@ -64,6 +64,12 @@ npm run dev
 
 Open [http://localhost:4321](http://localhost:4321) in your browser.
 
+### Run type and component checks
+
+```sh
+npm run check
+```
+
 ### Build the site
 
 ```sh
@@ -71,6 +77,8 @@ npm run build
 ```
 
 The static output is written to `./dist/`.
+
+Note: `npm run build` automatically runs `npm run sync:assets` first, so you do not need to run it separately before building.
 
 ### Preview the production build locally
 
@@ -100,7 +108,7 @@ paulplatzer.github.io/
 │       └── deploy.yml         # GitHub Actions build & deploy
 ├── public/
 │   └── assets/
-│       ├── images/            # Profile photo → photo.jpg
+│       ├── images/            # Profile photo → paul_platzer_bandeau-1.webp
 │       ├── figures/           # Scientific figures (e.g. z500_analogs.png)
 │       ├── logos/             # Project/funder logos
 │       ├── pdfs/              # Author-copy PDFs of publications
@@ -123,10 +131,10 @@ paulplatzer.github.io/
 │   │   ├── research-themes.astro
 │   │   ├── publications.astro
 │   │   ├── projects.astro
-│   │   ├── code.astro         # Hidden — see below
+│   │   ├── code.astro         # Hidden until pyanalogs is released — see below
 │   │   ├── talks.astro
 │   │   ├── teaching.astro
-│   │   ├── cv.astro           # Hidden — see below
+│   │   ├── cv.astro
 │   │   ├── music.astro
 │   │   └── contact.astro
 │   └── styles/
@@ -140,37 +148,21 @@ paulplatzer.github.io/
 
 | Asset | Location |
 |---|---|
-| Profile photo | `public/assets/images/photo.jpg` |
+| Profile photo | `public/assets/images/paul_platzer_bandeau-1.webp` |
 | Scientific figures | `public/assets/figures/z500_analogs.png`, etc. |
 | Funder / project logos | `public/assets/logos/` |
 | Publication PDFs | `public/assets/pdfs/<key>.pdf` (keys defined in `src/data/publicationLinks.ts`) |
 | CV PDF | `public/assets/cv/cv_paul_platzer.pdf` |
 | DYNADIST-NA concept note | `public/assets/pdfs/DYNADIST_NA_Concept_Note.pdf` |
 
-After adding the profile photo, update the `<div class="sidebar-photo-placeholder">` in
-`src/components/Sidebar.astro` to an `<img>` tag:
+## How to unhide the Code page
 
-```astro
-<img
-  class="sidebar-photo"
-  src="/assets/images/photo.jpg"
-  alt="Photo of Paul Platzer"
-/>
-```
-
-## How to unhide the Code and CV pages
-
-Both pages are built but hidden from the sidebar navigation. To make them visible, open
-`src/data/navigation.ts` and set `visible: true` for the relevant entry:
+The Code page is built but hidden from the sidebar until pyanalogs is publicly released.
+To make it visible, open `src/data/navigation.ts` and set:
 
 ```typescript
-// Change this:
-{ label: 'Code', href: '/code', visible: false },
-// To this:
 { label: 'Code', href: '/code', visible: true },
 ```
-
-Do the same for `CV` when the CV is ready.
 
 ## How to add or update publications
 
