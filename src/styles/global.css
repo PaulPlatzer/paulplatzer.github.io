@@ -308,6 +308,20 @@ code {
   font-family: sans-serif;
 }
 
+.talk-type {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 0.4rem;
+}
+
+.talk-links {
+  margin-top: 0.3rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 /* ===== INLINE PUB REF (in research themes) ===== */
 .pubref {
   font-size: 0.9em;

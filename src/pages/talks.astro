@@ -1,33 +1,61 @@
 ---
-/**
- * TODO: Fill src/data/talks.ts to reproduce exactly the content from:
- * https://paulplatzer.wordpress.com/presentations/
- * Do not scrape automatically — copy the list manually when ready.
- */
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { talks } from '../data/talks';
+
+const typeLabel: Record<string, string> = {
+  oral:     '[oral]',
+  poster:   '[poster]',
+  invited:  '[invited]',
+  seminar:  '[seminar]',
+  other:    '[other]',
+};
+
+const sorted = talks.slice().sort((a, b) => b.year - a.year || b.date.localeCompare(a.date));
 ---
 
 <BaseLayout title="Talks" description="Paul Platzer — Talks and Presentations">
   <h1>Talks &amp; Presentations</h1>
 
   <ul class="talk-list">
-    {talks.map((talk) => (
+    {sorted.map((talk) => (
       <li class="talk-item">
         <div class="talk-title">
           {talk.slidesUrl
-            ? <a href={talk.slidesUrl}>{talk.title}</a>
+            ? <a href={talk.slidesUrl} target="_blank" rel="noopener noreferrer">{talk.title}</a>
             : talk.title
           }
-          {talk.type && <span style="font-size:0.8rem; font-family:sans-serif; color:#888; margin-left:0.5rem;">
-            [{talk.type}]
-          </span>}
+          {talk.type && (
+            <span class="talk-type">{typeLabel[talk.type] ?? `[${talk.type}]`}</span>
+          )}
         </div>
         <div class="talk-venue">
           {talk.venue}{talk.location ? `, ${talk.location}` : ''}
         </div>
         <div class="talk-date">{talk.date}</div>
+        {(talk.slidesUrl || talk.videoUrl || talk.abstractUrl || talk.eventUrl) && (
+          <div class="talk-links">
+            {talk.slidesUrl && (
+              <a class="pub-link" href={talk.slidesUrl} target="_blank" rel="noopener noreferrer">
+                Slides
+              </a>
+            )}
+            {talk.videoUrl && (
+              <a class="pub-link" href={talk.videoUrl} target="_blank" rel="noopener noreferrer">
+                Video
+              </a>
+            )}
+            {talk.abstractUrl && (
+              <a class="pub-link" href={talk.abstractUrl} target="_blank" rel="noopener noreferrer">
+                Abstract
+              </a>
+            )}
+            {talk.eventUrl && (
+              <a class="pub-link" href={talk.eventUrl} target="_blank" rel="noopener noreferrer">
+                Event
+              </a>
+            )}
+          </div>
+        )}
       </li>
     ))}
   </ul>
