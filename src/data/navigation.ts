@@ -14,8 +14,7 @@ export const navItems: NavItem[] = [
   { label: 'Code',              href: '/code',              visible: false },
   { label: 'Talks list',        href: '/talks',             visible: true  },
   { label: 'Teaching',          href: '/teaching',          visible: true  },
-  // TODO: set visible: true once the CV is up to date
-  { label: 'CV',                href: '/cv',                visible: false },
+  { label: 'CV',                href: '/cv',                visible: true  },
   { label: 'Music',             href: '/music',             visible: true  },
   { label: 'Contact',           href: '/contact',           visible: true  },
 ];

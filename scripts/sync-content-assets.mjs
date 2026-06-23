@@ -1,4 +1,4 @@
-import { copyFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
+import { copyFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'fs';
 import { join, extname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -29,9 +29,11 @@ function copyFile(src, dst, label) {
 const destImages = join(ROOT, 'public/assets/images');
 const destPdfs   = join(ROOT, 'public/assets/pdfs');
 const destLogos  = join(ROOT, 'public/assets/logos');
+const destCv     = join(ROOT, 'public/assets/cv');
 ensureDir(destImages);
 ensureDir(destPdfs);
 ensureDir(destLogos);
+ensureDir(destCv);
 console.log('Destination folders ready.');
 
 // ── Profile photo ────────────────────────────────────────────────────────────
@@ -90,6 +92,29 @@ if (existsSync(logosDir)) {
   if (count === 0) console.warn('  WARNING: no image files found in content/dynadist-na/logos/');
 } else {
   console.warn('  WARNING: content/dynadist-na/logos/ not found — skipping');
+}
+
+// ── CV PDF ───────────────────────────────────────────────────────────────────
+console.log('\n[5] CV PDF (content/CV/)');
+const cvDir = join(ROOT, 'content/CV');
+if (existsSync(cvDir)) {
+  const pdfs = readdirSync(cvDir)
+    .filter(f => !f.startsWith('.') && extname(f).toLowerCase() === '.pdf');
+  if (pdfs.length === 0) {
+    console.warn('  WARNING: no PDF found in content/CV/ — skipping');
+  } else {
+    let chosen = pdfs[0];
+    if (pdfs.length > 1) {
+      chosen = pdfs.reduce((a, b) =>
+        statSync(join(cvDir, a)).mtimeMs >= statSync(join(cvDir, b)).mtimeMs ? a : b
+      );
+      console.log(`  (multiple PDFs found; selected most recent: ${chosen})`);
+    }
+    copyFile(join(cvDir, chosen), join(destCv, 'cv_paul_platzer.pdf'),
+      `${chosen} → public/assets/cv/cv_paul_platzer.pdf`);
+  }
+} else {
+  console.warn('  WARNING: content/CV/ not found — skipping');
 }
 
 console.log('\nSync complete.');

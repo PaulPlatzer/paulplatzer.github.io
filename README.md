@@ -15,6 +15,7 @@ Astro. A sync step copies them into `public/assets/` before the build.
 | Paper PDFs | `content/papers_pdfs/<filename>.pdf` |
 | DYNADIST-NA concept note | `content/dynadist-na/DYNADIST_NA_Concept_Note.pdf` |
 | DYNADIST-NA logos | `content/dynadist-na/logos/` |
+| CV PDF | `content/CV/<any>.pdf` → served as `public/assets/cv/cv_paul_platzer.pdf` |
 
 ### Running the sync manually
 
@@ -38,6 +39,7 @@ to run it separately in CI.
 - **DYNADIST-NA logos / concept note**: place files in `content/dynadist-na/` and
   `content/dynadist-na/logos/` respectively; the sync picks them up automatically.
 - **Personal photo**: replace `content/paul_platzer_bandeau-1.webp`.
+- **CV PDF**: place the PDF anywhere inside `content/CV/`. The sync picks the most recently modified PDF and copies it to `public/assets/cv/cv_paul_platzer.pdf`.
 
 ---
 

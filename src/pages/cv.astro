@@ -1,13 +1,4 @@
 ---
-/**
- * This page is intentionally hidden from the sidebar navigation.
- * To make it visible, set visible: true for the 'CV' entry in src/data/navigation.ts
- * once the CV is up to date.
- *
- * TODO: place the CV PDF at /public/assets/cv/cv_paul_platzer.pdf and add a download
- * link or embedded viewer here.
- */
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -15,9 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <h1>Curriculum Vitae</h1>
 
   <p>
-    The CV will be added here once it is up to date.
+    My curriculum vitae is available here:
+    <a href="/assets/cv/cv_paul_platzer.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>.
   </p>
-
-  {/* TODO: uncomment once /public/assets/cv/cv_paul_platzer.pdf is available */}
-  {/* <p><a href="/assets/cv/cv_paul_platzer.pdf">Download CV (PDF)</a></p> */}
 </BaseLayout>
