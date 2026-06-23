@@ -24,7 +24,7 @@ export const talks: Talk[] = [
     date: 'April 2025',
     year: 2025,
     type: 'seminar',
-    slidesUrl: 'https://paulplatzer.wordpress.com/wp-content/uploads/2025/04/presentation_lops-1.pdf',
+    slidesUrl: '/assets/talks/2025_lops_dimensions_weather_regimes_optimal_distances.pdf',
   },
 
   {
@@ -34,7 +34,7 @@ export const talks: Talk[] = [
     date: 'November 2024',
     year: 2024,
     type: 'oral',
-    slidesUrl: 'https://paulplatzer.wordpress.com/wp-content/uploads/2025/01/presentation_climatimpacts_platzer_update.pdf',
+    slidesUrl: '/assets/talks/2024_climat_impacts_distance_learning_for_analog_methods.pdf',
     eventUrl: 'https://premc.org/climat-impacts-2024/',
   },
 
@@ -45,7 +45,7 @@ export const talks: Talk[] = [
     date: 'June 2022',
     year: 2022,
     type: 'oral',
-    slidesUrl: 'https://paulplatzer.wordpress.com/wp-content/uploads/2023/05/slw2022___preliminary_study_on_using_tide_gauge_measurements_to_reduce_uncertainty_in_historical_atmospheric_reanalysis.pdf',
+    slidesUrl: '/assets/talks/2022_sea_level_workshop_tide_gauge_reanalysis.pdf',
     eventUrl: 'https://2022-sealevel.sciencesconf.org/',
   },
 
@@ -56,7 +56,7 @@ export const talks: Talk[] = [
     date: 'September 2021',
     year: 2021,
     type: 'oral',
-    slidesUrl: 'https://paulplatzer.wordpress.com/wp-content/uploads/2021/10/intercomparison_of_analogue_stochastic_forecasts.pdf',
+    slidesUrl: '/assets/talks/2021_stuod_intercomparison_analogue_forecasts.pdf',
     eventUrl: 'https://www.imperial.ac.uk/events/137336/2nd-stochastic-transport-in-upper-ocean-dynamics-annual-workshop-2/',
   },
 
@@ -77,7 +77,7 @@ export const talks: Talk[] = [
     date: 'December 2020',
     year: 2020,
     type: 'other',
-    slidesUrl: 'https://paulplatzer.wordpress.com/wp-content/uploads/2021/10/defense_platzer_2020.pdf',
+    slidesUrl: '/assets/talks/2020_phd_defense.pdf',
     videoUrl: 'https://youtu.be/SkHceNLNyrY',
   },
 

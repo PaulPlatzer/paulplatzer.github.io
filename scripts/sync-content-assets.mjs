@@ -30,10 +30,12 @@ const destImages = join(ROOT, 'public/assets/images');
 const destPdfs   = join(ROOT, 'public/assets/pdfs');
 const destLogos  = join(ROOT, 'public/assets/logos');
 const destCv     = join(ROOT, 'public/assets/cv');
+const destTalks  = join(ROOT, 'public/assets/talks');
 ensureDir(destImages);
 ensureDir(destPdfs);
 ensureDir(destLogos);
 ensureDir(destCv);
+ensureDir(destTalks);
 console.log('Destination folders ready.');
 
 // ── Profile photo ────────────────────────────────────────────────────────────
@@ -115,6 +117,24 @@ if (existsSync(cvDir)) {
   }
 } else {
   console.warn('  WARNING: content/CV/ not found — skipping');
+}
+
+// ── Talk slide PDFs ─────────────────────────────────────────────────────────
+console.log('\n[6] Talk slide PDFs (content/talks_slides/)');
+const talksSlidesDir = join(ROOT, 'content/talks_slides');
+if (existsSync(talksSlidesDir)) {
+  const files = readdirSync(talksSlidesDir);
+  let count = 0;
+  for (const file of files) {
+    if (file.startsWith('.')) continue;
+    if (extname(file).toLowerCase() !== '.pdf') continue;
+    copyFile(join(talksSlidesDir, file), join(destTalks, file),
+      `${file} → public/assets/talks/`);
+    count++;
+  }
+  if (count === 0) console.warn('  WARNING: no PDF files found in content/talks_slides/');
+} else {
+  console.warn('  WARNING: content/talks_slides/ not found — skipping');
 }
 
 console.log('\nSync complete.');

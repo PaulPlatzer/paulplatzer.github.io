@@ -13,8 +13,8 @@ const typeLabel: Record<string, string> = {
 const sorted = talks.slice().sort((a, b) => b.year - a.year || b.date.localeCompare(a.date));
 ---
 
-<BaseLayout title="Talks" description="Paul Platzer — Talks and Presentations">
-  <h1>Talks &amp; Presentations</h1>
+<BaseLayout title="Talks" description="Paul Platzer — Talks">
+  <h1>Talks</h1>
 
   <ul class="talk-list">
     {sorted.map((talk) => (

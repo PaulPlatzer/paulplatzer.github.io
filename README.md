@@ -16,6 +16,7 @@ Astro. A sync step copies them into `public/assets/` before the build.
 | DYNADIST-NA concept note | `content/dynadist-na/DYNADIST_NA_Concept_Note.pdf` |
 | DYNADIST-NA logos | `content/dynadist-na/logos/` |
 | CV PDF | `content/CV/<any>.pdf` → served as `public/assets/cv/cv_paul_platzer.pdf` |
+| Talk slide PDFs | `content/talks_slides/<filename>.pdf` → served as `public/assets/talks/<filename>.pdf` |
 
 ### Running the sync manually
 
@@ -40,6 +41,7 @@ to run it separately in CI.
   `content/dynadist-na/logos/` respectively; the sync picks them up automatically.
 - **Personal photo**: replace `content/paul_platzer_bandeau-1.webp`.
 - **CV PDF**: place the PDF anywhere inside `content/CV/`. The sync picks the most recently modified PDF and copies it to `public/assets/cv/cv_paul_platzer.pdf`.
+- **Talk slide PDFs**: place a PDF in `content/talks_slides/`, then use its matching `/assets/talks/<filename>.pdf` path in `src/data/talks.ts`.
 
 ---
 
@@ -112,6 +114,7 @@ paulplatzer.github.io/
 │       ├── figures/           # Scientific figures (e.g. z500_analogs.png)
 │       ├── logos/             # Project/funder logos
 │       ├── pdfs/              # Author-copy PDFs of publications
+│       ├── talks/             # Talk slide PDFs
 │       └── cv/                # CV PDF
 ├── src/
 │   ├── components/
@@ -153,6 +156,7 @@ paulplatzer.github.io/
 | Funder / project logos | `public/assets/logos/` |
 | Publication PDFs | `public/assets/pdfs/<key>.pdf` (keys defined in `src/data/publicationLinks.ts`) |
 | CV PDF | `public/assets/cv/cv_paul_platzer.pdf` |
+| Talk slide PDFs | `public/assets/talks/<filename>.pdf` |
 | DYNADIST-NA concept note | `public/assets/pdfs/DYNADIST_NA_Concept_Note.pdf` |
 
 ## How to unhide the Code page

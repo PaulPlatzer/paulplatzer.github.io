@@ -9,6 +9,11 @@ const typeLabel: Record<string, string> = {
   PhD: '[PhD]',
   r:   '[r]',
 };
+
+const doiText = (doiUrl: string) =>
+  doiUrl.startsWith('https://doi.org/')
+    ? doiUrl.slice('https://doi.org/'.length)
+    : undefined;
 ---
 
 <BaseLayout title="Publications" description="Paul Platzer — Publications">
@@ -28,7 +33,7 @@ const typeLabel: Record<string, string> = {
       .map((pub) => (
         <li class="publication-item">
           <div class="pub-type-authors">
-            <span class="pub-type">{typeLabel[pub.type] ?? `[${pub.type}]`}</span>
+            <strong class="pub-type">{typeLabel[pub.type] ?? `[${pub.type}]`}</strong>
             {' '}<span class="pub-authors">{pub.authors}</span>
           </div>
           <div class="pub-title">
@@ -38,12 +43,10 @@ const typeLabel: Record<string, string> = {
             }
           </div>
           <div class="pub-journal">{pub.journal} ({pub.year})</div>
+          {pub.doiUrl && doiText(pub.doiUrl) && (
+            <div class="pub-doi">doi:{doiText(pub.doiUrl)}</div>
+          )}
           <div class="pub-links">
-            {pub.doiUrl && (
-              <a class="pub-link" href={pub.doiUrl} target="_blank" rel="noopener noreferrer">
-                DOI
-              </a>
-            )}
             {pub.pdfLocalUrl && (
               <a class="pub-link" href={pub.pdfLocalUrl} target="_blank" rel="noopener noreferrer">
                 PDF
@@ -69,5 +72,6 @@ const typeLabel: Record<string, string> = {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.8rem;
     color: #666;
+    font-weight: bold;
   }
 </style>

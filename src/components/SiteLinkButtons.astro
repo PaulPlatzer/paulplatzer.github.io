@@ -1,9 +1,9 @@
 ---
 const links = [
-  { label: 'ORCID',          href: 'https://orcid.org/0000-0002-5562-2806' },
-  { label: 'GitHub',         href: 'https://github.com/PaulPlatzer/' },
-  { label: 'ResearchGate',   href: 'https://www.researchgate.net/profile/Paul-Platzer' },
-  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=9ugAMEEAAAAJ' },
+  { label: 'ORCID',          href: 'https://orcid.org/0000-0002-5562-2806', icon: '/assets/icons/orcid.svg' },
+  { label: 'GitHub',         href: 'https://github.com/PaulPlatzer/', icon: '/assets/icons/github.svg' },
+  { label: 'ResearchGate',   href: 'https://www.researchgate.net/profile/Paul-Platzer', icon: '/assets/icons/researchgate.svg' },
+  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=9ugAMEEAAAAJ', icon: '/assets/icons/google-scholar.svg' },
 ];
 ---
 
@@ -14,8 +14,10 @@ const links = [
       href={link.href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={link.label}
+      title={link.label}
     >
-      {link.label}
+      <img class="sidebar-link-icon" src={link.icon} alt="" aria-hidden="true" />
     </a>
   ))}
 </div>
