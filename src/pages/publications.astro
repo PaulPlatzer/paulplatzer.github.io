@@ -1,25 +1,36 @@
 ---
-/**
- * TODO: Fill the publication data in src/data/publications.ts from:
- * https://paulplatzer.wordpress.com/home/publications/
- *
- * For each publication, place the author-copy PDF in /public/assets/pdfs/
- * and update pdfLocalUrl in publications.ts accordingly.
- */
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { publications } from '../data/publications';
+
+const typeLabel: Record<string, string> = {
+  jp:  '[jp]',
+  cp:  '[cp]',
+  pp:  '[pp]',
+  PhD: '[PhD]',
+  r:   '[r]',
+};
 ---
 
 <BaseLayout title="Publications" description="Paul Platzer — Publications">
   <h1>Publications</h1>
 
+  <p style="font-size:0.85rem; color:#555; font-family:sans-serif; margin-bottom:1.5rem;">
+    <strong>[jp]</strong> journal paper &nbsp;·&nbsp;
+    <strong>[cp]</strong> conference paper &nbsp;·&nbsp;
+    <strong>[PhD]</strong> PhD dissertation &nbsp;·&nbsp;
+    <strong>[r]</strong> report
+  </p>
+
   <ul class="publication-list">
     {publications
+      .slice()
       .sort((a, b) => b.year - a.year)
       .map((pub) => (
         <li class="publication-item">
-          <div class="pub-authors">{pub.authors}</div>
+          <div class="pub-type-authors">
+            <span class="pub-type">{typeLabel[pub.type] ?? `[${pub.type}]`}</span>
+            {' '}<span class="pub-authors">{pub.authors}</span>
+          </div>
           <div class="pub-title">
             {pub.doiUrl
               ? <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer">{pub.title}</a>
@@ -34,8 +45,13 @@ import { publications } from '../data/publications';
               </a>
             )}
             {pub.pdfLocalUrl && (
-              <a class="pub-link" href={pub.pdfLocalUrl}>
+              <a class="pub-link" href={pub.pdfLocalUrl} target="_blank" rel="noopener noreferrer">
                 PDF
+              </a>
+            )}
+            {!pub.pdfLocalUrl && pub.externalPdfUrl && (
+              <a class="pub-link" href={pub.externalPdfUrl} target="_blank" rel="noopener noreferrer">
+                External PDF
               </a>
             )}
           </div>
@@ -44,3 +60,14 @@ import { publications } from '../data/publications';
     }
   </ul>
 </BaseLayout>
+
+<style>
+  .pub-type-authors {
+    margin-bottom: 0.15rem;
+  }
+  .pub-type {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: #666;
+  }
+</style>
