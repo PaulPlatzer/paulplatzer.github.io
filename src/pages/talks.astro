@@ -1,0 +1,34 @@
+---
+/**
+ * TODO: Fill src/data/talks.ts to reproduce exactly the content from:
+ * https://paulplatzer.wordpress.com/presentations/
+ * Do not scrape automatically — copy the list manually when ready.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { talks } from '../data/talks';
+---
+
+<BaseLayout title="Talks" description="Paul Platzer — Talks and Presentations">
+  <h1>Talks &amp; Presentations</h1>
+
+  <ul class="talk-list">
+    {talks.map((talk) => (
+      <li class="talk-item">
+        <div class="talk-title">
+          {talk.slidesUrl
+            ? <a href={talk.slidesUrl}>{talk.title}</a>
+            : talk.title
+          }
+          {talk.type && <span style="font-size:0.8rem; font-family:sans-serif; color:#888; margin-left:0.5rem;">
+            [{talk.type}]
+          </span>}
+        </div>
+        <div class="talk-venue">
+          {talk.venue}{talk.location ? `, ${talk.location}` : ''}
+        </div>
+        <div class="talk-date">{talk.date}</div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  filename: string;
+  alt: string;
+  caption?: string;
+}
+const { filename, alt, caption } = Astro.props;
+---
+
+<figure class="figure-placeholder" aria-label={alt}>
+  <span>[Figure placeholder]</span>
+  <span class="figure-filename">{filename}</span>
+  {caption && <figcaption style="margin-top:0.5rem; font-size:0.85rem; color:#666;">{caption}</figcaption>}
+</figure>

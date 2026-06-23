@@ -1,0 +1,46 @@
+---
+/**
+ * TODO: Fill the publication data in src/data/publications.ts from:
+ * https://paulplatzer.wordpress.com/home/publications/
+ *
+ * For each publication, place the author-copy PDF in /public/assets/pdfs/
+ * and update pdfLocalUrl in publications.ts accordingly.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { publications } from '../data/publications';
+---
+
+<BaseLayout title="Publications" description="Paul Platzer — Publications">
+  <h1>Publications</h1>
+
+  <ul class="publication-list">
+    {publications
+      .sort((a, b) => b.year - a.year)
+      .map((pub) => (
+        <li class="publication-item">
+          <div class="pub-authors">{pub.authors}</div>
+          <div class="pub-title">
+            {pub.doiUrl
+              ? <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer">{pub.title}</a>
+              : pub.title
+            }
+          </div>
+          <div class="pub-journal">{pub.journal} ({pub.year})</div>
+          <div class="pub-links">
+            {pub.doiUrl && (
+              <a class="pub-link" href={pub.doiUrl} target="_blank" rel="noopener noreferrer">
+                DOI
+              </a>
+            )}
+            {pub.pdfLocalUrl && (
+              <a class="pub-link" href={pub.pdfLocalUrl}>
+                PDF
+              </a>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

@@ -1,0 +1,86 @@
+---
+/**
+ * TODO (logos):
+ *   Real logo files are expected from ../DYNADIST-NA/logos/
+ *   Copy them to /public/assets/logos/ and replace the placeholder <div>s below with <img> tags.
+ *
+ * TODO (concept note):
+ *   Place the PDF at /public/assets/pdfs/DYNADIST_NA_Concept_Note.pdf
+ *   The link below already points to that path.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Projects" description="Paul Platzer — Projects">
+  <h1>Projects</h1>
+
+  <h2>DYNADIST-NA</h2>
+
+  <p>
+    I am the principal investigator of the project{' '}
+    <strong>DYNADIST-NA</strong>: Dynamical distance optimization for
+    basin-scale North Atlantic sea-surface temperature jump predictability.
+    This project has two main goals:
+  </p>
+  <ul>
+    <li>
+      improve our understanding of oceanic drivers of basin-scale marine
+      heatwaves (MHWs) such as the summer 2023 North-Atlantic event,
+    </li>
+    <li>
+      develop a new methodology for optimizing distances in analog methods,
+      especially forecasting sea-surface temperatures.
+    </li>
+  </ul>
+
+  <p>
+    Existing analysis of the basin-scale North-Atlantic MHW of summer 2023 are
+    mostly limited to atmospheric drivers (e.g. England et al., 2025). As a
+    sister project of PORC-&#201;PIC, DYNADIST-NA aims at better
+    characterizing oceanic drivers of such extreme events.
+  </p>
+
+  <p>
+    Existing methodologies for optimizing analog distances today are either
+    non state-specific (Platzer et al., 2025), or use indirect optimization
+    not directly tailored at forecasting scores such as CRPS (Toride et al.,
+    2025).
+  </p>
+
+  <p>
+    More details on the project, including scientific literature review, can be
+    found in this{' '}
+    {/* TODO: place the PDF at /public/assets/pdfs/DYNADIST_NA_Concept_Note.pdf */}
+    <a href="/assets/pdfs/DYNADIST_NA_Concept_Note.pdf">concept note</a>.
+  </p>
+
+  <p>
+    DYNADIST-NA is supported by ISblue project, Interdisciplinary graduate
+    school for the blue planet (ANR-17-EURE-0015) and co-funded by a grant
+    from the French government under the program &ldquo;Investissements
+    d&rsquo;Avenir&rdquo; embedded in France 2030.
+  </p>
+
+  {/* TODO: replace logo placeholders with <img> tags once real logos are copied
+       from ../DYNADIST-NA/logos/ to /public/assets/logos/ */}
+  <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; margin:1rem 0;">
+    <div style="border:1px dashed #bbb; padding:0.6rem 1rem; color:#aaa; font-family:sans-serif; font-size:0.8rem; border-radius:3px;">
+      [Logo placeholder: ISblue]
+    </div>
+    <div style="border:1px dashed #bbb; padding:0.6rem 1rem; color:#aaa; font-family:sans-serif; font-size:0.8rem; border-radius:3px;">
+      [Logo placeholder: ANR]
+    </div>
+    <div style="border:1px dashed #bbb; padding:0.6rem 1rem; color:#aaa; font-family:sans-serif; font-size:0.8rem; border-radius:3px;">
+      [Logo placeholder: France 2030]
+    </div>
+  </div>
+
+  <hr style="border:none; border-top:1px solid #ddd; margin:2rem 0;" />
+
+  <p>
+    I am currently a post-doctoral researcher funded by the PORC-&#201;PIC ANR,
+    and previously post-doctoral researcher funded by STUOD ERC, and before
+    that my PhD was funded by the A2C2 ERC and CARAVELE ANR.
+  </p>
+</BaseLayout>

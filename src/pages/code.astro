@@ -1,0 +1,117 @@
+---
+/**
+ * This page is intentionally hidden from the sidebar navigation.
+ * To make it visible, set visible: true for the 'Code' entry in src/data/navigation.ts
+ * once pyanalogs is publicly released.
+ *
+ * TODO (logo): place the pyanalogs logo at /public/assets/logos/pyanalogs_logo.png
+ * TODO (links): replace placeholder hrefs below with real documentation URLs once the
+ *   package is released.
+ * TODO (package): the package source will be available locally at ../analogs_package/pyanalogs/
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Code — pyanalogs" description="Paul Platzer — pyanalogs Python package">
+  <h1>Code</h1>
+
+  <p>
+    I am the lead developer of the Python package <code>pyanalogs</code> for
+    analog-based methods in geoscience and dynamical systems.
+  </p>
+
+  {/* TODO: replace with <img src="/assets/logos/pyanalogs_logo.png" ... /> once available */}
+  <div style="text-align:center; margin:1.5rem 0;">
+    <div style="display:inline-block; border:1px dashed #bbb; padding:1rem 2rem; color:#aaa; font-family:sans-serif; font-size:0.85rem; border-radius:3px;">
+      [pyanalogs logo placeholder]
+    </div>
+  </div>
+
+  <h2>The package</h2>
+
+  <p>
+    It provides reusable tools for finding, filtering, reusing, evaluating, and
+    diagnosing analogs: states in a catalog that are close to a query state
+    according to a chosen representation and distance.
+  </p>
+
+  <p>
+    The package{' '}
+    {/* TODO: replace with real documentation URL */}
+    <a href="#todo-docs">documentation</a>{' '}
+    provides information on the package&rsquo;s functionalities, installation
+    and use, as well as dedicated and easy-to-follow tutorials for beginners.
+  </p>
+
+  <h2>Why pyanalogs?</h2>
+
+  <p>
+    Nearest-neighbor search can be done efficiently with existing libraries such
+    as <code>scikit-learn</code>. However, analog methods usually need more than
+    raw nearest-neighbor search.
+  </p>
+
+  <p>In practice, analog workflows often require:</p>
+  <ul>
+    <li>temporal exclusions, such as not using samples too close in time;</li>
+    <li>seasonal windows, such as searching only around the same time of year;</li>
+    <li>
+      group exclusions, such as not using samples from the same cyclone, event,
+      ensemble member, or simulation;
+    </li>
+    <li>
+      geophysical data handling, including <code>xarray</code> and NetCDF
+      datasets;
+    </li>
+    <li>
+      reusable analog indices and distances, so that one expensive search can
+      support several downstream analyses;
+    </li>
+    <li>ensemble-based prediction, not only point prediction;</li>
+    <li>probabilistic scoring, such as CRPS;</li>
+    <li>
+      sensitivity studies over the number of analogs, distance choices, variable
+      weights, catalog size, and eligibility rules, which can become tedious.
+    </li>
+  </ul>
+
+  <p>
+    Although simple in theory, using analog methods actually requires careful
+    implementation and good practice that this package aims to facilitate. The
+    package also includes documentation and tutorials which allow the unfamiliar
+    user to delve easily in the world of analog methods.
+  </p>
+
+  <p>
+    Recent work also combines analog methods with more advanced AI tools: metric
+    optimization, representation learning. These methods are more difficult to
+    implement than basic analog search, especially for users who are not
+    specialists in numerical optimization or machine learning.
+  </p>
+
+  <p>
+    <code>pyanalogs</code> aims to provide a common, tested, and extensible
+    framework where classical analog methods, diagnostic tools, and newer
+    analog-AI hybrid methods can be implemented, compared, and used by a broad
+    scientific community.
+  </p>
+
+  <h2>Questions?</h2>
+
+  <p>
+    Any questions or suggestions about <code>pyanalogs</code> can be emailed to
+    me using my personal website&rsquo;s{' '}
+    <a href="/contact">contact information</a>.
+  </p>
+
+  <h2>Contributing</h2>
+
+  <p>
+    Contributions to the package are welcome! Instructions for contributions are
+    provided in the{' '}
+    {/* TODO: replace with real contribution/contributing URL */}
+    <a href="#todo-contributing">documentation</a>. Do not hesitate to contact
+    me directly.
+  </p>
+</BaseLayout>
