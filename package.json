@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "sync:assets": "node scripts/sync-content-assets.mjs",
+    "build": "npm run sync:assets && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "astro": "astro"

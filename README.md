@@ -2,6 +2,45 @@
 
 Personal academic research website for Paul Platzer, built with [Astro](https://astro.build).
 
+## Local assets and content sync
+
+Real assets (photos, PDFs, logos) live in `content/` and are **not** served directly by
+Astro. A sync step copies them into `public/assets/` before the build.
+
+### Asset locations in `content/`
+
+| Asset | Path in `content/` |
+|---|---|
+| Personal photo | `content/paul_platzer_bandeau-1.webp` |
+| Paper PDFs | `content/papers_pdfs/<filename>.pdf` |
+| DYNADIST-NA concept note | `content/dynadist-na/DYNADIST_NA_Concept_Note.pdf` |
+| DYNADIST-NA logos | `content/dynadist-na/logos/` |
+
+### Running the sync manually
+
+```sh
+npm run sync:assets
+```
+
+This copies all assets from `content/` into `public/assets/` (creating sub-folders
+`images/`, `pdfs/`, `logos/` as needed). Files are overwritten if the source is updated.
+Hidden files are skipped. PDF filenames are lightly sanitised (leading journal-tag blocks
+removed, spaces replaced with underscores).
+
+`npm run build` runs the sync automatically before the Astro build, so you do not need
+to run it separately in CI.
+
+### Adding new content
+
+- **New paper PDFs**: drop the file in `content/papers_pdfs/`, then add an entry in
+  `src/data/publications.ts` and a key in `src/data/publicationLinks.ts` pointing to
+  `/assets/pdfs/<sanitised-name>.pdf`.
+- **DYNADIST-NA logos / concept note**: place files in `content/dynadist-na/` and
+  `content/dynadist-na/logos/` respectively; the sync picks them up automatically.
+- **Personal photo**: replace `content/paul_platzer_bandeau-1.webp`.
+
+---
+
 ## Local development
 
 ### Prerequisites

@@ -1,11 +1,3 @@
-/**
- * TODO: Fill this list from the full publication list at:
- * https://paulplatzer.wordpress.com/home/publications/
- *
- * For each entry, place the author-copy PDF in /public/assets/pdfs/
- * and reference it via the pdfLocalUrl field.
- * Set doiUrl to the DOI link for the published version.
- */
 export interface Publication {
   key: string;
   authors: string;
@@ -25,7 +17,7 @@ export const publications: Publication[] = [
     title: 'Using local dynamics to explain analog forecasting of chaotic systems',
     journal: 'Journal of the Atmospheric Sciences, 78(5), 2117–2133',
     doiUrl: 'https://doi.org/10.1175/JAS-D-20-0204.1',
-    pdfLocalUrl: '/assets/pdfs/Platzer2021a_JAS.pdf',
+    pdfLocalUrl: '/assets/pdfs/Using_Local_Dynamics_to_Explain_Analog_Forecasting_of_Chaotic_Systems.pdf',
     tags: ['analogs', 'predictability', 'chaos'],
   },
   {
@@ -35,7 +27,7 @@ export const publications: Publication[] = [
     title: 'Probability distributions for analog-to-target distances',
     journal: 'Journal of the Atmospheric Sciences, 78(10), 3317–3335',
     doiUrl: 'https://doi.org/10.1175/JAS-D-20-0382.1',
-    pdfLocalUrl: '/assets/pdfs/Platzer2021b_JAS.pdf',
+    pdfLocalUrl: '/assets/pdfs/Probability_Distributions_for_Analog-To-Target_Distances.pdf',
     tags: ['analogs', 'extreme events', 'statistics'],
   },
   {
@@ -44,7 +36,6 @@ export const publications: Publication[] = [
     year: 2022,
     title: 'Estimation of attractor dimension using analogs',
     journal: 'STUOD Proceedings',
-    pdfLocalUrl: '/assets/pdfs/Platzer2022_STUOD.pdf',
     tags: ['analogs', 'dimension', 'dynamical systems'],
   },
   {
@@ -53,7 +44,6 @@ export const publications: Publication[] = [
     year: 2024,
     title: 'Analog-based uncertainty quantification and predictability',
     journal: 'STUOD Proceedings',
-    pdfLocalUrl: '/assets/pdfs/PlatzerChapron2024_STUOD.pdf',
     tags: ['analogs', 'predictability', 'uncertainty'],
   },
   {
@@ -62,8 +52,6 @@ export const publications: Publication[] = [
     year: 2024,
     title: 'Analog-based estimation of extreme event probabilities',
     journal: 'Climate of the Past',
-    // TODO: fill in DOI once published
-    pdfLocalUrl: '/assets/pdfs/Platzer2024_CP.pdf',
     tags: ['analogs', 'extreme events', 'climate'],
   },
   {
@@ -72,8 +60,7 @@ export const publications: Publication[] = [
     year: 2025,
     title: 'Analog-based dimension estimation',
     journal: 'Journal of Statistical Physics',
-    // TODO: fill in DOI once published
-    pdfLocalUrl: '/assets/pdfs/PlatzerChapron2025_JSP.pdf',
+    pdfLocalUrl: '/assets/pdfs/Platzer_et_al-2025-Journal_of_Statistical_Physics.pdf',
     tags: ['analogs', 'dimension', 'dynamical systems'],
   },
   {
@@ -82,8 +69,7 @@ export const publications: Publication[] = [
     year: 2025,
     title: 'Analog-based dimension estimation in climate science',
     journal: 'npj Climate and Atmospheric Science',
-    // TODO: fill in DOI and full author list once published
-    pdfLocalUrl: '/assets/pdfs/Platzer2025_npj.pdf',
+    pdfLocalUrl: '/assets/pdfs/s41612-025-01086-w.pdf',
     tags: ['analogs', 'dimension', 'climate'],
   },
   {
@@ -92,8 +78,7 @@ export const publications: Publication[] = [
     year: 2025,
     title: 'Gradient-descent optimization of analog distances',
     journal: 'Monthly Weather Review',
-    // TODO: fill in DOI and full author list once published
-    pdfLocalUrl: '/assets/pdfs/Platzer2025_MWR.pdf',
+    pdfLocalUrl: '/assets/pdfs/Distance_Learning_for_Analog_Methods-1.pdf',
     tags: ['analogs', 'optimization', 'machine learning'],
   },
 ];

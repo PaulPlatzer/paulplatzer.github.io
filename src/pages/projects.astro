@@ -1,14 +1,4 @@
 ---
-/**
- * TODO (logos):
- *   Real logo files are expected from ../DYNADIST-NA/logos/
- *   Copy them to /public/assets/logos/ and replace the placeholder <div>s below with <img> tags.
- *
- * TODO (concept note):
- *   Place the PDF at /public/assets/pdfs/DYNADIST_NA_Concept_Note.pdf
- *   The link below already points to that path.
- */
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -51,7 +41,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <p>
     More details on the project, including scientific literature review, can be
     found in this{' '}
-    {/* TODO: place the PDF at /public/assets/pdfs/DYNADIST_NA_Concept_Note.pdf */}
     <a href="/assets/pdfs/DYNADIST_NA_Concept_Note.pdf">concept note</a>.
   </p>
 
@@ -62,18 +51,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     d&rsquo;Avenir&rdquo; embedded in France 2030.
   </p>
 
-  {/* TODO: replace logo placeholders with <img> tags once real logos are copied
-       from ../DYNADIST-NA/logos/ to /public/assets/logos/ */}
-  <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; margin:1rem 0;">
-    <div style="border:1px dashed #bbb; padding:0.6rem 1rem; color:#aaa; font-family:sans-serif; font-size:0.8rem; border-radius:3px;">
-      [Logo placeholder: ISblue]
-    </div>
-    <div style="border:1px dashed #bbb; padding:0.6rem 1rem; color:#aaa; font-family:sans-serif; font-size:0.8rem; border-radius:3px;">
-      [Logo placeholder: ANR]
-    </div>
-    <div style="border:1px dashed #bbb; padding:0.6rem 1rem; color:#aaa; font-family:sans-serif; font-size:0.8rem; border-radius:3px;">
-      [Logo placeholder: France 2030]
-    </div>
+  <div style="display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; margin:1.25rem 0;">
+    <img
+      src="/assets/logos/logo_dynadist_long.png"
+      alt="DYNADIST-NA"
+      style="height:56px; width:auto;"
+    />
+    <img
+      src="/assets/logos/ISblue-Logo-Horizontal-Web-RVB-01.png"
+      alt="ISblue — Interdisciplinary graduate school for the blue planet"
+      style="height:56px; width:auto;"
+    />
+    <img
+      src="/assets/logos/Logotype_France_2030.jpg"
+      alt="France 2030"
+      style="height:56px; width:auto;"
+    />
   </div>
 
   <hr style="border:none; border-top:1px solid #ddd; margin:2rem 0;" />
