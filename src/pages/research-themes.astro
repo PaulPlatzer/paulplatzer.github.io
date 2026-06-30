@@ -1,27 +1,5 @@
 ---
-/**
- * TODO (figures):
- *
- * z500_analogs.png:
- *   - Source: ERA5 reanalysis, daily 500hPa geopotential height (z500), winter DJF, 5° resolution.
- *   - Workflow: detrend the full series → compute daily seasonal climatology → subtract climatology
- *     to get anomalies → search analogs across different winters (exclude pairs less than 1 year apart)
- *     → keep the pair with smallest Euclidean distance.
- *   - Figure: two panels side by side, Northern Hemisphere maps with coastlines, panel titles = dates.
- *   - The pyanalogs package (available locally at ../analogs_package/pyanalogs/) can be used for
- *     the analog search and evaluation steps.
- *
- * sst_analogs.png:
- *   - Source: Kaplan SST v2, summer JJA.
- *   - Workflow: detrend → compute seasonal climatology → anomalies → same closest-pair logic as above.
- *   - Figure: same two-panel format with coastlines and dates as panel titles.
- *
- * Do NOT implement data download or figure generation inside the website build.
- * Place the generated figures in /public/assets/figures/ and uncomment the <img> tags below.
- */
-
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FigurePlaceholder from '../components/FigurePlaceholder.astro';
 import { pdfLinks } from '../data/publicationLinks';
 
 const p = pdfLinks;
@@ -36,17 +14,21 @@ const p = pdfLinks;
     My first main research theme is weather/ocean analogs. It is a striking
     property of the atmospheric and ocean circulation that most observed patterns
     are recurring, i.e. similar patterns have been previously observed in the
-    past and will be in the future. Here is an example of two similar patterns
-    of 500mb geopotential height anomaly over the Northern Hemisphere occurring
-    at remote times (data = ERA5 reanalysis).
+    past and will be in the future. Here is an analog versus non-analog
+    comparison for 500mb geopotential height anomaly over the Northern Hemisphere
+    (data = ERA5 reanalysis).
   </p>
 
-  <!-- TODO: replace with <img> once z500_analogs.png is generated -->
-  <FigurePlaceholder
-    filename="z500_analogs.png"
-    alt="Two analog states of 500hPa geopotential height anomaly over the Northern Hemisphere, side by side with dates"
-    caption="Example of two analog patterns of z500 anomaly (ERA5 reanalysis, DJF)"
-  />
+  <figure class="research-figure">
+    <img
+      src="/assets/figures/z500_analog_vs_nonanalog_detrended_values.png"
+      alt="Comparison of analog and non-analog 500hPa geopotential height patterns over the Northern Hemisphere"
+      loading="lazy"
+    />
+    <figcaption>
+      Analog and non-analog z500 patterns over the Northern Hemisphere (ERA5 reanalysis).
+    </figcaption>
+  </figure>
 
   <p>
     The large-scale atmospheric circulation on this part of the Earth is mostly
@@ -60,16 +42,20 @@ const p = pdfLinks;
   </p>
 
   <p>
-    Here is another example of analogs using sea-surface temperature data
-    (data = Kaplan SST v2).
+    Here is another analog versus non-analog example using sea-surface
+    temperature data (data = Kaplan SST v2).
   </p>
 
-  <!-- TODO: replace with <img> once sst_analogs.png is generated -->
-  <FigurePlaceholder
-    filename="sst_analogs.png"
-    alt="Two analog states of sea-surface temperature anomaly, side by side with dates"
-    caption="Example of two analog patterns of SST anomaly (Kaplan SST v2, JJA)"
-  />
+  <figure class="research-figure">
+    <img
+      src="/assets/figures/sst_analog_vs_nonanalog_anomaly.png"
+      alt="Comparison of analog and non-analog sea-surface temperature anomaly patterns"
+      loading="lazy"
+    />
+    <figcaption>
+      Analog and non-analog SST anomaly patterns (Kaplan SST v2).
+    </figcaption>
+  </figure>
 
   <p>I am interested in understanding the properties of analog-based statistical methods, covering several aspects:</p>
 

@@ -5,6 +5,10 @@ import { fileURLToPath } from 'url';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 const IMAGE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg']);
+const EXPECTED_ANALOG_FIGURES = [
+  'sst_analog_vs_nonanalog_anomaly.png',
+  'z500_analog_vs_nonanalog_detrended_values.png',
+];
 
 function ensureDir(dir) {
   mkdirSync(dir, { recursive: true });
@@ -31,11 +35,13 @@ const destPdfs   = join(ROOT, 'public/assets/pdfs');
 const destLogos  = join(ROOT, 'public/assets/logos');
 const destCv     = join(ROOT, 'public/assets/cv');
 const destTalks  = join(ROOT, 'public/assets/talks');
+const destFigures = join(ROOT, 'public/assets/figures');
 ensureDir(destImages);
 ensureDir(destPdfs);
 ensureDir(destLogos);
 ensureDir(destCv);
 ensureDir(destTalks);
+ensureDir(destFigures);
 console.log('Destination folders ready.');
 
 // ── Profile photo ────────────────────────────────────────────────────────────
@@ -145,6 +151,35 @@ if (existsSync(talksSlidesDir)) {
   if (count === 0) console.warn('  WARNING: no PDF files found in content/talks_slides/');
 } else {
   console.warn('  WARNING: content/talks_slides/ not found — skipping');
+}
+
+// ── Analog example figures ─────────────────────────────────────────────────
+console.log('\n[8] Analog example figures (content/analogs_examples/)');
+const analogsExamplesDir = join(ROOT, 'content/analogs_examples');
+if (existsSync(analogsExamplesDir)) {
+  const files = readdirSync(analogsExamplesDir);
+  const imageFiles = files.filter(file =>
+    !file.startsWith('.') && IMAGE_EXTS.has(extname(file).toLowerCase())
+  );
+
+  for (const expected of EXPECTED_ANALOG_FIGURES) {
+    if (!files.includes(expected)) {
+      console.warn(`  WARNING: content/analogs_examples/${expected} not found`);
+    }
+  }
+
+  let count = 0;
+  for (const file of imageFiles) {
+    copyFile(join(analogsExamplesDir, file), join(destFigures, file),
+      `${file} → public/assets/figures/`);
+    count++;
+  }
+  if (count === 0) console.warn('  WARNING: no image files found in content/analogs_examples/');
+} else {
+  console.warn('  WARNING: content/analogs_examples/ not found — skipping');
+  for (const expected of EXPECTED_ANALOG_FIGURES) {
+    console.warn(`  WARNING: content/analogs_examples/${expected} not found`);
+  }
 }
 
 console.log('\nSync complete.');
