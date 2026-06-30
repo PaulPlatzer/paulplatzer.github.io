@@ -11,12 +11,12 @@ const p = pdfLinks;
   <h2>Weather and Ocean Analogs</h2>
 
   <p>
-    My first main research theme is weather/ocean analogs. It is a striking
+    My main research theme is weather/ocean analogs. It is a striking
     property of the atmospheric and ocean circulation that most observed patterns
     are recurring, i.e. similar patterns have been previously observed in the
     past and will be in the future. Here is an analog versus non-analog
-    comparison for 500mb geopotential height anomaly over the Northern Hemisphere
-    (data = ERA5 reanalysis).
+    comparison for (linearly detrended) 500mb geopotential-height (z500) over the Northern Hemisphere
+    (data = ERA5 reanalysis, 1979-2023, winter DJF, daily 12utc, preprocessing = pointwise linear detrending).
   </p>
 
   <figure class="research-figure">
@@ -31,19 +31,26 @@ const p = pdfLinks;
   </figure>
 
   <p>
-    The large-scale atmospheric circulation on this part of the Earth is mostly
+    The large-scale atmospheric circulation on this part of the earth is largely
     driven by the jet-stream, which is a main driver of mid-latitude weather
-    conditions. The jet stream always flows from West to East, but its particular
-    configuration (shape and intensity) varies non-linearly (chaotically) and
-    the latter forms meanders, caused by a meteorological phenomenon called
-    &lsquo;Rossby waves&rsquo;. Most of the particular configurations of the
-    jet-stream are recurring: almost every observed pattern will come back every
-    few years.
+    conditions. The jet stream always flows from West to East, along
+    constant geopotential-height contours. The particular configuration of the
+    jet stream (shape and intensity) varies non-linearly (chaotically) and
+    the latter typically forms meanders, caused by a meteorological phenomenon called
+    &lsquo;Rossby waves&rsquo;. Most of the configurations of the
+    jet-stream are recurring and will &lsquo;come back&rsquo; every
+    few years. Here, the circulation on 1994-12-26 was analogous to that of
+    2006-12-12, with the jet stream extending in a direction from the North Pacific
+    to the North-East Atlantic (troughs), and contracting along the opposite direction (ridges).
+    Contrarily, on 2008-12-15, the jet stream extended towards North-America and North-East Russia,
+    with geopotential height forming a bipolar pattern. The normalized Euclidean distance between
+    these fields is shown, where a distance equal to 1 corresponds to the typical distance between
+    two randomly selected z500 fields.
   </p>
 
   <p>
     Here is another analog versus non-analog example using sea-surface
-    temperature data (data = Kaplan SST v2).
+    temperature data (data = ERSSTv5, 1854-2026,  monthly, summer JJA, preprocessing = pointwise linear detrending).
   </p>
 
   <figure class="research-figure">
@@ -53,7 +60,7 @@ const p = pdfLinks;
       loading="lazy"
     />
     <figcaption>
-      Analog and non-analog SST anomaly patterns (Kaplan SST v2).
+      Analog and non-analog SST anomaly patterns (ERSSTv5).
     </figcaption>
   </figure>
 
