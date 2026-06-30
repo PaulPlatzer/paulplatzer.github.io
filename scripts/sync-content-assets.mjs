@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
-const IMAGE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg']);
+const IMAGE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.gif']);
 const EXPECTED_ANALOG_FIGURES = [
   'sst_analog_vs_nonanalog_anomaly.png',
   'z500_analog_vs_nonanalog_detrended_values.png',
@@ -180,6 +180,32 @@ if (existsSync(analogsExamplesDir)) {
   for (const expected of EXPECTED_ANALOG_FIGURES) {
     console.warn(`  WARNING: content/analogs_examples/${expected} not found`);
   }
+}
+
+// ── DYNADIST-NA project figures ─────────────────────────────────────────────
+console.log('\n[9] DYNADIST-NA project figures (content/dynadist-na/figures/)');
+const dynadistFiguresDir = join(ROOT, 'content/dynadist-na/figures');
+if (existsSync(dynadistFiguresDir)) {
+  const files = readdirSync(dynadistFiguresDir);
+  let count = 0;
+
+  for (const file of files) {
+    if (file.startsWith('.')) continue;
+    if (!IMAGE_EXTS.has(extname(file).toLowerCase())) continue;
+
+    copyFile(
+      join(dynadistFiguresDir, file),
+      join(destFigures, file),
+      `${file} → public/assets/figures/`
+    );
+    count++;
+  }
+
+  if (count === 0) {
+    console.warn('  WARNING: no image files found in content/dynadist-na/figures/');
+  }
+} else {
+  console.warn('  WARNING: content/dynadist-na/figures/ not found — skipping');
 }
 
 console.log('\nSync complete.');
